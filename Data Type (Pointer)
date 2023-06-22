@@ -1,0 +1,27 @@
+Data type that stores datas:
+i) Primitive Data type                \\ eg. int a; float b; char c; double d;
+ii) User-defined type or structured   \\ eg. struct a{\*...*\}; class, which is defined by user and stores vary of datas
+
+Data type that stores data:
+Pointer - a pointer is a variable that stores address
+
+We define pointer by doing:
+\\...(skiped header ,namespace, int main())
+int number = 10;
+int* ptr;       \\ this means we created an pointer names "ptr" that can only stores integer data type address
+ptr = &number;  \\ we assign the address of "number" to pointer "ptr"
+
+\\the below code is same as line 11 to 12, use one line instead of 2 line
+\*
+int* ptr = &number;
+*\
+
+pointer "ptr" now holds the address of "number"
+as we want to see what's inside the pointer that we are pointing to
+we can use '*' operator to dereference "ptr" as example below:
+
+cout << *ptr; \\ this will display the value that stored in "number"
+
+what if we have struct Person{\*...*\}; and we want to declare a pointer to a struct.
+ans:
+Person* ptr; \\ we declare a pointer that can only stores "Person" user-defined data type address

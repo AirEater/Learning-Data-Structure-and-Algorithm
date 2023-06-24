@@ -25,3 +25,13 @@ cout << *ptr; \\ this will display the value that stored in "number"
 what if we have struct Person{\*...*\}; and we want to declare a pointer to a struct.
 ans:
 Person* ptr; \\ we declare a pointer that can only stores "Person" user-defined data type address
+
+========================================================================================================================
+example:
+
+struct Person{
+  char name[20],
+  float money;
+};
+int main(){
+  Person Alex; \\ to access member of structure we can use '.': Alex.money = 5.5;

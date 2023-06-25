@@ -1,3 +1,9 @@
+A variable holds 4 elements
+1)name (identifier)
+2)address value (where the computer physically stores the variable)
+3)memory (how much value can the variable holds; we define a variable named 'C' and his data type is "char" so that the memory of this variable is 1)
+4)data
+
 Data type that stores datas:
 i) Primitive Data type                \\ eg. int a; float b; char c; double d;
 ii) User-defined type or structured   \\ eg. struct a{\*...*\}; class, which is defined by user and stores vary of datas
@@ -35,3 +41,10 @@ struct Person{
 };
 int main(){
   Person Alex; \\ to access member of structure we can use '.': Alex.money = 5.5;
+  int *ptr1;
+  int a = 5;
+  Person *ptr2;
+
+  ptr1 = &a;
+  ptr2 = &Alex;
+  

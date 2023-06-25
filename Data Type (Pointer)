@@ -35,16 +35,51 @@ Person* ptr; // we declare a pointer that can only stores "Person" user-defined 
 ========================================================================================================================
 example:
 
+#include <iostream>
+#include <cstring>
+using namespace std;
+
 struct Person{
-  char name[20],
-  float money;
-};
+  char name[20]; // 20 bytes
+  float money; // 4 bytes
+  Person* lover; // pointer size are 8 bytes in 64-bit system, 4 bytes in 32-bit system
+}; // total size of Person is 32 bytes in 64-bit system, 28 bytes in 32-bit system
+
 int main(){
-  Person Alex; // to access member of structure we can use '.': Alex.money = 5.5;
-  int *ptr1;
+  Person Alex; //to access member of structure we can use '.': Alex.money = 5.5;
+  Person Jessica;
+  strcpy(Alex.name, "Alex"); // Assign value to c string
+  
   int a = 5;
+  int *ptr1;
   Person *ptr2;
 
-  ptr1 = &a;
+  ptr1 = &a; // assign value to pointer to see how pointer works
   ptr2 = &Alex;
+
+  cout << "ptr1 address: " << reinterpret_cast<long long>(ptr1) << endl; // cast hexadecimal address to decimal to get a readable address
+  cout << "ptr2 address: " << reinterpret_cast<long long>(ptr2) << endl << endl;
+
+  cout << "ptr1: " << *ptr1 << endl;
+  cout << "ptr2: " << (*ptr2).name << endl; // or do like then next line, the result will be same
+  cout << "ptr2: " << ptr2->name << endl << endl; // -> is a shortcut for (*ptr2).name
+
+  // Jessica is Alex's lover, and Alex is Jessica's lover
+  Alex.lover = &Jessica;
+  Jessica.lover = &Alex;
+  cout << "Alex's Lover address(Jessica): " << reinterpret_cast<long long>(Alex.lover) << endl;
+  cout << "Jessica's Lover address(Alex): " << reinterpret_cast<long long>(Jessica.lover) << endl;
+
+  Person* address; // create a pointer to store address of Alex's lover(Jessica)
+  address = Alex.lover; // this address is pointing to Jessica because Alex's lover is Jessica
+  cout << "\"address\" address(Jessica)   : " << reinterpret_cast<long long>(address) << endl;
+  address->money += 100; // give money to Alex's lover
+
+  //by doing the same thing, we can do it in another way
+  Alex.lover->money += 100;
+  cout << endl << "Alex's lover money: " << Alex.lover->money << endl;
+
+  return 0;
+}
+
   

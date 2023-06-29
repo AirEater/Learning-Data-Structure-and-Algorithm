@@ -5,11 +5,9 @@ A variable holds 4 elements
 4)data
 
 Data type that stores datas:
-i) Primitive Data type                // eg. int a; float b; char c; double d;
-ii) User-defined type or structured   // eg. struct a{/*...*/}; class, which is defined by user and stores vary of datas
-
-Data type that stores adddress:
-Pointer - a pointer is a variable that stores address
+i)   Primitive Data type                // eg. int a; float b; char c; double d;
+ii)  User-defined type or structured    // eg. struct a{/*...*/}; class, which is defined by user and stores vary of datas
+iii) Pointer data type                  // data type that stores address (pointer)
 
 We define pointer by doing:
 //...(skiped header ,namespace, int main())
